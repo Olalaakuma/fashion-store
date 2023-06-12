@@ -3,11 +3,11 @@ import Directory from "../../components/directory.component/directory.component"
 import "./Homepage.style.scss";
 
 
-const Homepage = ()=>(
+const Homepage = ({navigate})=>(
 
 <div className="homepage">
 
-<Directory/>
+<Directory navigate= {navigate}/>
 
 </div>
 

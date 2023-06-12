@@ -1,9 +1,19 @@
 import React from "react";
-import "./menu-item.style.scss";
+import "/Users/mac/fashion-store/src/components/menu-item.component/menu-item.style.scss";
+import {  useNavigate,  } from "react-router";
+export const withRouter = (Component) => {
+	const Wrapper = (props) => {
+		const navigate  = useNavigate();
+		return <Component navigate={navigate} {...props} />;
+	};
+	return Wrapper;
+};
 
-const MenuItem = ({title, imageUrl, size})=>(
 
-<div className={`menu-item ${size}`}>
+
+const MenuItem = ({title, imageUrl, size, navigate,  linkUrl})=>(
+
+<div className={` menu-item ${size}`} onClick= {()=> navigate( `${ linkUrl}`)}>
         
 <div className="background-image" style ={{backgroundImage: `url(${imageUrl})`}} />
         <div className="content">
@@ -16,7 +26,6 @@ const MenuItem = ({title, imageUrl, size})=>(
 
 
     </div>
-
 );
 
-export default MenuItem;
+export default withRouter(MenuItem)
