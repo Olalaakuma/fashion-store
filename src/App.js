@@ -1,17 +1,11 @@
 import React from 'react';
 import {Routes, Route } from 'react-router-dom';
 import Homepage from './pages/homepage/Homepage.component';
-
+import ShopPage from './pages/shop/shop.component';
 
 import '/Users/mac/fashion-store/src/App.css';
 
-const HatsPage =()=>(
-<div>
-<h1>HAT PAGE</h1>
 
-</div>
-
-);
 
 
 
@@ -20,7 +14,7 @@ function App() {
 <Routes>
 
   <Route  path='/' element = {<Homepage/>}/>
-  <Route path ='/hats' element ={<HatsPage/>}/>
+  <Route path ='/shop' element ={<ShopPage/>}/>
 </Routes>
 
 
