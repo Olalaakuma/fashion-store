@@ -6,8 +6,12 @@ import Header from './components/header-component/header.component.jsx';
 import SignInAndSignUp from './pages/signin-and-signup/signin-and-signup';
 import { auth, CreateUserProfileDocument } from './firebase-utilities/firebase.util';
 import {connect} from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import {setCurrentUser} from './redux/user/user.action';
+import CheckoutPage from './pages/checkout/checkout.component';
+import { selectCurrentUser } from './redux/user/user.selector';
 import '/Users/mac/fashion-store/src/App.css';
+
 
 
 
@@ -56,6 +60,7 @@ this.unsubscribeFromAuth();
 
   <Route path='/' element = {<Homepage/>}/>
   <Route path ='/shop' element ={<ShopPage/>}/>
+  <Route path ='/checkout' element ={<CheckoutPage/>}/>
   <Route
   path="/signin"
   element={this.props.currentUser ? <Navigate to="/" replace /> : <SignInAndSignUp />}
@@ -70,8 +75,8 @@ this.unsubscribeFromAuth();
   }
 }
 
-const mapStateToProps = ({user})=>({
-currentUser: user.currentUser
+const mapStateToProps = createStructuredSelector({
+currentUser: selectCurrentUser,
 
 });
 const mapDispatchToProps = dispatch =>({
